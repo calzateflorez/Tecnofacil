@@ -1,6 +1,10 @@
+/* ========================================== */
+/* 1. CONFIGURACIÓN GLOBAL Y VARIABLES        */
+/* ========================================== */
 :root {
-  --font-size: 16px;
+  --font-size: 16px; /* Variable dinámica controlada por accesibilidad */
 }
+
 body {
   font-family: Arial, sans-serif;
   background-color: #cfd8dc;
@@ -13,7 +17,9 @@ body {
   font-size: var(--font-size);
 }
 
-/* CHASSIS DE TELÉFONO MÓVIL */
+/* ========================================== */
+/* 2. MAQUETACIÓN DEL CHASSIS MÓVIL (HARDWARE)  */
+/* ========================================== */
 .phone-case {
   width: 380px;
   height: 740px;
@@ -27,7 +33,7 @@ body {
   border: 4px solid #333;
 }
 
-/* MUESCA Y CÁMARA FRONTAL */
+/* Muesca y cámara frontal del celular */
 .phone-notch {
   width: 120px;
   height: 18px;
@@ -41,7 +47,7 @@ body {
   z-index: 10;
 }
 
-/* PANTALLA DEL CELULAR */
+/* Pantalla interna interactiva */
 .phone-screen {
   width: 100%;
   height: 100%;
@@ -54,12 +60,15 @@ body {
   box-sizing: border-box;
 }
 
-/* CONTENIDO INTERNO */
+/* Contenedor interno de las vistas */
 .app-content {
   padding: 35px 15px 75px 15px;
   flex: 1;
 }
 
+/* ========================================== */
+/* 3. TIPOGRAFÍA Y COMPONENTES VISUALES       */
+/* ========================================== */
 h1 { color: #00796b; font-size: 1.3em; text-align: center; margin-top: 10px; }
 h2 { color: #004d40; font-size: 1.1em; margin-bottom: 5px; }
 p { color: #333; line-height: 1.4; }
@@ -110,6 +119,9 @@ p { color: #333; line-height: 1.4; }
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+/* ========================================== */
+/* 4. CHAT Y BARRAS DE NAVEGACIÓN INFERIOR    */
+/* ========================================== */
 .chat-box {
   background: #fafafa;
   border: 2px dashed #00bfa5;
@@ -127,7 +139,7 @@ p { color: #333; line-height: 1.4; }
   margin-top: 8px;
 }
 
-/* MENÚ NAVEGACIÓN INFERIOR (TAB BAR MÓVIL) */
+/* Barra de navegación inferior móvil (Tab Bar) */
 .bottom-nav {
   position: absolute;
   bottom: 0;
@@ -157,6 +169,7 @@ p { color: #333; line-height: 1.4; }
 .nav-item span { font-size: 1.3em; }
 .nav-item.active { color: #00bfa5; }
 
+/* Mensajes de validación y burbujas de chat */
 .error-msg { color: #d32f2f; font-weight: bold; text-align: center; display: none; margin-top: 8px; font-size: 0.9em; }
 .success-msg { color: #2e7d32; font-weight: bold; text-align: center; display: none; margin-top: 8px; font-size: 0.9em; }
 

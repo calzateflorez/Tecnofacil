@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TecnoFácil - Prototipo Móvil (TRL5)</title>
+  <!-- Enlace a la hoja de estilos externa -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- CHASSIS EXTERNO DEL CELULAR -->
+  <!-- ========================================== -->
+  <!-- CONTENEDOR EXTERNO: CHASSIS DE TELÉFONO MÓVIL -->
+  <!-- ========================================== -->
   <div class="phone-case">
+    <!-- Muesca superior simulada (Notch) -->
     <div class="phone-notch"></div>
     
-    <!-- PANTALLA MÓVIL -->
+    <!-- PANTALLA PRINCIPAL DEL DISPOSITIVO -->
     <div class="phone-screen">
       <div class="app-content">
 
-        <!-- PANTALLA 1: INICIO DE SESIÓN -->
+        <!-- ========================================== -->
+        <!-- VISTA 1: INICIO DE SESIÓN (LOGIN) -->
+        <!-- ========================================== -->
         <div id="loginSection">
           <h1>TecnoFácil</h1>
           <p style="text-align: center; margin-top: -10px;"><em>Inicio de Sesión</em></p>
@@ -36,7 +42,9 @@
           </div>
         </div>
 
-        <!-- PANTALLA 1.5: REGISTRO DE NUEVO USUARIO -->
+        <!-- ========================================== -->
+        <!-- VISTA 1.5: REGISTRO DE NUEVO USUARIO -->
+        <!-- ========================================== -->
         <div id="registerSection" style="display: none;">
           <h1>Crear Cuenta</h1>
           <p style="text-align: center; margin-top: -10px;"><em>Registro de Usuario</em></p>
@@ -58,7 +66,9 @@
           </div>
         </div>
 
-        <!-- PANTALLA 2: APLICACIÓN PRINCIPAL (MÓDULOS) -->
+        <!-- ========================================== -->
+        <!-- VISTA 2: APLICACIÓN PRINCIPAL (MÓDULOS INTERNOS) -->
+        <!-- ========================================== -->
         <div id="appSection" style="display: none;">
           
           <!-- SECCIÓN: INICIO / DASHBOARD -->
@@ -74,7 +84,7 @@
             </div>
           </div>
 
-          <!-- SECCIÓN: CURSOS -->
+          <!-- SECCIÓN: MÓDULOS EDUCATIVOS (CURSOS) -->
           <div id="tabCursos" class="tab-content" style="display: none;">
             <h1>Módulos Educativos</h1>
             <div class="card">
@@ -85,7 +95,7 @@
             </div>
           </div>
 
-          <!-- SECCIÓN: ASISTENTE DE IA (VOZ/TEXTO) -->
+          <!-- SECCIÓN: ASISTENTE VIRTUAL (INTELIGENCIA ARTIFICIAL) -->
           <div id="tabAsistente" class="tab-content" style="display: none;">
             <h1>Asistente Virtual (IA)</h1>
             <div class="card">
@@ -97,11 +107,11 @@
             </div>
           </div>
 
-          <!-- SECCIÓN: PEDIR AYUDA (CONTACTO FAMILIAR Y ASESOR) -->
+          <!-- SECCIÓN: CENTRO DE AYUDA (RED FAMILIAR Y ASESOR) -->
           <div id="tabAyuda" class="tab-content" style="display: none;">
             <h1>Centro de Ayuda</h1>
             
-            <!-- SUB-MÓDULO: CONTACTAR FAMILIAR -->
+            <!-- Submódulo: Red de Apoyo Familiar -->
             <div class="card" style="border-left-color: #e91e63;">
               <h2>👨‍👩‍👧 Red de Apoyo Familiar</h2>
               <label for="famName"><strong>Nombre del Familiar:</strong></label>
@@ -114,7 +124,7 @@
               <button class="btn-main" style="background-color: #d81b60;" onclick="enviarAlertaFamiliar()">📩 Enviar Mensaje de Ayuda</button>
             </div>
 
-            <!-- SUB-MÓDULO: CHAT CON ASESOR EN VIVO -->
+            <!-- Submódulo: Chat con Asesor Técnico -->
             <div class="card">
               <h2>👨‍🏫 Chat con Asesor Técnico</h2>
               <div class="chat-box" id="chatAsesorBox">
@@ -129,7 +139,7 @@
             </div>
           </div>
 
-          <!-- SECCIÓN: AJUSTES / ACCESIBILIDAD Y CONFIGURACIÓN -->
+          <!-- SECCIÓN: CONFIGURACIÓN Y ACCESIBILIDAD GERONTOLÓGICA -->
           <div id="tabAjustes" class="tab-content" style="display: none;">
             <h1>Configuración</h1>
             
@@ -165,7 +175,9 @@
 
       </div>
 
-      <!-- MENÚ INFERIOR (NAVEGACIÓN POR TABS) -->
+      <!-- ========================================== -->
+      <!-- MENÚ DE NAVEGACIÓN INFERIOR (TAB BAR MÓVIL) -->
+      <!-- ========================================== -->
       <div class="bottom-nav" id="mainNav" style="display: none;">
         <button class="nav-item active" id="navInicio" onclick="switchTab('inicio')">
           <span>🏠</span>Inicio
@@ -187,6 +199,7 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <!-- Carga del script principal como Módulo ES6 (POO) -->
+  <script type="module" src="js/App.js"></script>
 </body>
 </html>
