@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TecnoFácil - Prototipo Móvil (TRL5)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CHASSIS EXTERNO DEL CELULAR -->
+  <div class="phone-case">
+    <div class="phone-notch"></div>
+    
+    <!-- PANTALLA MÓVIL -->
+    <div class="phone-screen">
+      <div class="app-content">
+
+        <!-- PANTALLA 1: INICIO DE SESIÓN -->
+        <div id="loginSection">
+          <h1>TecnoFácil</h1>
+          <p style="text-align: center; margin-top: -10px;"><em>Inicio de Sesión</em></p>
+          
+          <div class="card">
+            <label for="username"><strong>Usuario:</strong></label>
+            <input type="text" id="username" class="input-field" placeholder="Ej: usuario">
+            
+            <label for="password"><strong>Contraseña:</strong></label>
+            <input type="password" id="password" class="input-field" placeholder="Ej: 1234">
+            
+            <button class="btn-main" onclick="validarIngreso()">Ingresar a TecnoFácil</button>
+            <div id="errorMessage" class="error-msg">Usuario o contraseña incorrectos</div>
+            <div id="loginSuccessMessage" class="success-msg">¡Cuenta creada! Ya puedes ingresar.</div>
+            
+            <button class="btn-link" onclick="mostrarRegistro()">¿No tienes cuenta? Regístrate aquí</button>
+          </div>
+        </div>
+
+        <!-- PANTALLA 1.5: REGISTRO DE NUEVO USUARIO -->
+        <div id="registerSection" style="display: none;">
+          <h1>Crear Cuenta</h1>
+          <p style="text-align: center; margin-top: -10px;"><em>Registro de Usuario</em></p>
+          
+          <div class="card">
+            <label for="regName"><strong>Nombre Completo:</strong></label>
+            <input type="text" id="regName" class="input-field" placeholder="Ingrese su nombre">
+
+            <label for="regUser"><strong>Usuario Nuevo:</strong></label>
+            <input type="text" id="regUser" class="input-field" placeholder="Cree su nombre de usuario">
+            
+            <label for="regPass"><strong>Contraseña:</strong></label>
+            <input type="password" id="regPass" class="input-field" placeholder="Cree una contraseña">
+            
+            <button class="btn-main" onclick="registrarUsuario()">Guardar y Registrarse</button>
+            <div id="regErrorMessage" class="error-msg">Por favor complete todos los campos</div>
+            
+            <button class="btn-link" onclick="mostrarLogin()">Volver a Inicio de Sesión</button>
+          </div>
+        </div>
+
+        <!-- PANTALLA 2: APLICACIÓN PRINCIPAL (MÓDULOS) -->
+        <div id="appSection" style="display: none;">
+          
+          <!-- SECCIÓN: INICIO / DASHBOARD -->
+          <div id="tabInicio" class="tab-content">
+            <h1 id="welcomeTitle">Bienvenido</h1>
+            <p>Selecciona una opción para empezar tu capacitación digital:</p>
+            
+            <div class="card">
+              <strong>Accesos Rápidos:</strong>
+              <button class="btn-main" onclick="switchTab('cursos')">📚 Catálogo de Cursos</button>
+              <button class="btn-main" style="background-color: #0288d1;" onclick="switchTab('asistente')">🤖 Asistente de IA (Voz)</button>
+              <button class="btn-main" style="background-color: #7b1fa2;" onclick="switchTab('ayuda')">📞 Pedir Ayuda o Contactar Familiar</button>
+            </div>
+          </div>
+
+          <!-- SECCIÓN: CURSOS -->
+          <div id="tabCursos" class="tab-content" style="display: none;">
+            <h1>Módulos Educativos</h1>
+            <div class="card">
+              <strong>Catálogo de Lecciones Guiadas:</strong>
+              <button class="btn-main" style="background:#0288d1;" onclick="cargarLeccion('celular')">📱 Curso 1: ¿Cómo usar el celular?</button>
+              <button class="btn-main" onclick="cargarLeccion('whatsapp')">💬 Curso 2: Manejo de WhatsApp</button>
+              <button class="btn-main" style="background:#388e3c;" onclick="cargarLeccion('banca')">🏦 Curso 3: Pagos y Banca Segura</button>
+            </div>
+          </div>
+
+          <!-- SECCIÓN: ASISTENTE DE IA (VOZ/TEXTO) -->
+          <div id="tabAsistente" class="tab-content" style="display: none;">
+            <h1>Asistente Virtual (IA)</h1>
+            <div class="card">
+              <strong>Soporte Automatizado 24/7:</strong>
+              <button class="btn-main" style="background-color: #0288d1;" onclick="escucharVoz()">🎙️ Presiona para hablar</button>
+              <div class="chat-box" id="respuestaChat">
+                Hola, soy tu asistente virtual de IA. Pregúntame sobre cómo usar tu teléfono o ingresar a tus aplicaciones.
+              </div>
+            </div>
+          </div>
+
+          <!-- SECCIÓN: PEDIR AYUDA (CONTACTO FAMILIAR Y ASESOR) -->
+          <div id="tabAyuda" class="tab-content" style="display: none;">
+            <h1>Centro de Ayuda</h1>
+            
+            <!-- SUB-MÓDULO: CONTACTAR FAMILIAR -->
+            <div class="card" style="border-left-color: #e91e63;">
+              <h2>👨‍👩‍👧 Red de Apoyo Familiar</h2>
+              <label for="famName"><strong>Nombre del Familiar:</strong></label>
+              <input type="text" id="famName" class="input-field" placeholder="Ej: María (Hija)" value="María (Hija)">
+              
+              <label for="famPhone"><strong>Teléfono:</strong></label>
+              <input type="text" id="famPhone" class="input-field" placeholder="Ej: 300 123 4567" value="300 123 4567">
+              
+              <button class="btn-main" style="background-color: #e91e63;" onclick="llamarFamiliar()">📞 Llamar a mi Familiar</button>
+              <button class="btn-main" style="background-color: #d81b60;" onclick="enviarAlertaFamiliar()">📩 Enviar Mensaje de Ayuda</button>
+            </div>
+
+            <!-- SUB-MÓDULO: CHAT CON ASESOR EN VIVO -->
+            <div class="card">
+              <h2>👨‍🏫 Chat con Asesor Técnico</h2>
+              <div class="chat-box" id="chatAsesorBox">
+                <div class="bubble bubble-advisor">
+                  <strong>Asesor (Carlos):</strong> ¡Hola! Soy tu tutor asignado. ¿En qué te puedo colaborar hoy?
+                </div>
+              </div>
+              <div class="chat-input-container">
+                <input type="text" id="asesorInput" class="input-field" placeholder="Escribe tu duda aquí..." style="margin:0;">
+                <button class="btn-main" style="width: auto; padding: 0 15px; margin:0;" onclick="enviarMensajeAsesor()">Enviar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECCIÓN: AJUSTES / ACCESIBILIDAD Y CONFIGURACIÓN -->
+          <div id="tabAjustes" class="tab-content" style="display: none;">
+            <h1>Configuración</h1>
+            
+            <div class="card">
+              <h2>Accesibilidad Visual</h2>
+              <button class="btn-main" style="background:#78909c;" onclick="cambiarTamano(15)">Texto Normal</button>
+              <button class="btn-main" style="background:#455a64;" onclick="cambiarTamano(19)">Texto Grande</button>
+            </div>
+
+            <div class="card">
+              <h2>Idioma de la Aplicación</h2>
+              <select id="langSelect" onchange="cambiarIdioma()">
+                <option value="es">Español (Colombia)</option>
+                <option value="en">English (Inglés)</option>
+                <option value="pt">Português (Portugués)</option>
+                <option value="fr">Français (Francés)</option>
+              </select>
+            </div>
+
+            <div class="card">
+              <h2>Modo de Notificaciones y Audio</h2>
+              <select id="soundSelect" onchange="cambiarModoSonido()">
+                <option value="sonido">🔊 Sonido Activado</option>
+                <option value="vibracion">📳 Solo Vibración</option>
+                <option value="silencio">🔇 Modo Silencioso</option>
+              </select>
+            </div>
+
+            <button class="btn-main" style="background:#e53935; margin-top: 15px;" onclick="cerrarSesion()">Cerrar Sesión</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- MENÚ INFERIOR (NAVEGACIÓN POR TABS) -->
+      <div class="bottom-nav" id="mainNav" style="display: none;">
+        <button class="nav-item active" id="navInicio" onclick="switchTab('inicio')">
+          <span>🏠</span>Inicio
+        </button>
+        <button class="nav-item" id="navCursos" onclick="switchTab('cursos')">
+          <span>📚</span>Cursos
+        </button>
+        <button class="nav-item" id="navAsistente" onclick="switchTab('asistente')">
+          <span>🤖</span>Asistente
+        </button>
+        <button class="nav-item" id="navAyuda" onclick="switchTab('ayuda')">
+          <span>📞</span>Ayuda
+        </button>
+        <button class="nav-item" id="navAjustes" onclick="switchTab('ajustes')">
+          <span>⚙️</span>Ajustes
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
